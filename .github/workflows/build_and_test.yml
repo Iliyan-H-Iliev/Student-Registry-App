@@ -14,12 +14,18 @@ jobs:
     steps:
     - name: Clone GitHub repository
       uses: actions/checkout@v4
+
     - name: Use Node.js v20
       uses: actions/setup-node@v4
       with:
         node-version: 20
         cache: 'npm'
+
     - name: Install program dependencies
       run: npm install
+
     - name: Start the app
+      run: npm start &
+
+    - name: Test the app
       run: npm test
